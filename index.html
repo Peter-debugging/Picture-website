@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  </head>
+  <body>
+    <header>
+      <div class="search">
+        <input type="text" placeholder="Search images.." />
+      </div>
+      <nav class="nav-bar">
+        <a href="">Images</a>
+        <a href="">Ilustrations</a>
+        <a href="">Videos</a>
+        <a href="">Try to click on any image</a>
+      </nav>
+    </header>
+    
+    <main>
+      
+      <div class="image-column">
+        <img onclick="show(this)" src="images/img-1.jpg"/>
+        <img onclick="show(this)" src="images/img-2.jpg"/>
+        <img onclick="show(this)" src="images/img-9.jpg"/>
+        <img onclick="show(this)" src="images/img-4.jpg"/>
+        <img onclick="show(this)" src="images/img-5.jpg"/>
+        <img onclick="show(this)" src="images/img-6.jpg"/>
+        <img onclick="show(this)" src="images/img-7.jpg"/>
+        <img onclick="show(this)" src="images/img-25.jpg"/>
+      </div>
+
+      <div class="image-column">
+        <img onclick="show(this)" src="images/img-3.jpg"/>
+        <img onclick="show(this)" src="images/img-10.jpg"/>
+        <img onclick="show(this)" src="images/img-11.jpg"/>
+        <img onclick="show(this)" src="images/img-12.jpg"/>
+        <img onclick="show(this)" src="images/img-13.jpg"/>
+        <img onclick="show(this)" src="images/img-14.png"/>
+        <img onclick="show(this)" src="images/img-15.jpg"/>
+        <img onclick="show(this)" src="images/img-16.jpg"/>
+      </div>
+
+      <div class="image-column">
+        <img onclick="show(this)" src="images/img-18.jpg"/>
+        <img onclick="show(this)" src="images/img-19.jpg"/>
+        <img onclick="show(this)" src="images/img-20.jpg"/>
+        <img onclick="show(this)" src="images/img-21.jpg"/>
+        <img onclick="show(this)" src="images/img-22.jpg"/>
+        <img onclick="show(this)" src="images/img-23.jpg"/>
+        <img onclick="show(this)" src="images/img-24.jpg"/>
+        <img onclick="show(this)" src="images/img-8.jpg"/>
+      </div>
+    </main>
+
+    <div class="modal">
+      <div class="modal-close-button" >&times;</div>
+      <div class="modal-img">
+        <img src="images/img-8.jpg"/>
+      </div>
+    </div>
+
+    <footer>
+      Made with &hearts; by <a target="_blank" href="https://www.instagram.com/pedrohenriqueribeirodearaujo/">Pedro Henrique</a>
+    </footer>
+
+    
+    <script>
+      //nav
+      var nav = document.querySelector(".nav-bar");
+      var stickyOffset = nav.offsetTop;      
+
+      window.onscroll = ()=>{
+        if(window.pageYOffset >= stickyOffset){
+          nav.classList.add("sticky");
+        }else{
+          nav.classList.remove("sticky");
+        }
+      }
+
+      //modal-image
+      var modal = document.querySelector(".modal");
+      var modalImage = document.querySelector(".modal-img img");
+      var closeButton = document.querySelector(".modal-close-button");
+
+      closeButton.addEventListener("click", ()=>{
+        modal.style.display = "none";
+      });
+
+      function show(element){
+        modal.style.display = "block";
+        modalImage.src = element.src;
+      }
+    </script>
+  </body>
+</html>
